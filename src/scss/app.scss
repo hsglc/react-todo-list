@@ -1,0 +1,48 @@
+.App {
+  background-color: #209cee;
+  height: 100vh;
+  padding: 30px;
+  
+}
+
+button {
+    height: 2.4rem;
+    margin-left: 1rem;
+    border-radius: .2rem;
+}
+
+.btn-trash {
+    background-color: red;
+    
+}
+.btn-check {
+    background-color: green;
+}
+
+
+.todo {
+  align-items: center;
+  background: #fff;
+  border-radius: .5rem;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  
+  justify-content: space-between;
+  margin: 1rem auto;
+  padding: 1rem;
+  font-size: 1.5rem;
+  &-list {
+    background: #e8e8e8;
+    border-radius: 4px;
+    max-width: 70%;
+    padding: 2rem;
+    margin: 0 auto;
+    input {
+        width: 50%;
+        padding: .7rem;
+    }
+    
+  }
+}
+
+

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import "./App.css";
+import "./css/app.css";
+import { faCheck, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -13,8 +14,8 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
     >
       {todo.text}
       <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
-        <button onClick={() => removeTodo(index)}>x</button>
+        <button className="btn-check" onClick={() => completeTodo(index)}> <FontAwesomeIcon icon={faCheck} /> </button>
+        <button className="btn-trash" onClick={() => removeTodo(index)}>  <FontAwesomeIcon icon={faTrash} />  </button>
       </div>
     </div>
   );
@@ -33,11 +34,16 @@ function TodoForm({ addTodo }) {
   return (
     <form onSubmit={handleSubmit}>
       <input
+      placeholder="Add task..."
         type="text"
         className="input"
         value={value}
         onChange={e => setValue(e.target.value)}
       />
+      <button onClick={handleSubmit}>
+
+        <FontAwesomeIcon icon={faEdit} />
+      </button>
     </form>
   );
 }
@@ -78,6 +84,7 @@ function App() {
   return (
     <div className="App">
       <div className="todo-list">
+        <TodoForm addTodo={addTodo} />
         {todos.map((todo, index) => (
           <Todo
             key={index}
@@ -86,8 +93,11 @@ function App() {
             completeTodo={completeTodo}
             removeTodo={removeTodo}
           />
+          
         ))}
-        <TodoForm addTodo={addTodo} />
+        <div>Total Tasks : {todos.length}</div>
+        
+
       </div>
     </div>
   );
