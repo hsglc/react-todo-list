@@ -40,7 +40,7 @@ function TodoForm({ addTodo }) {
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <button onClick={handleSubmit}>
+      <button type="submit">
 
         <FontAwesomeIcon icon={faEdit} />
       </button>
