@@ -1,52 +1,16 @@
 import React, { useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import "./css/app.css";
-import { faCheck, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+
+import Todo from './components/Todo';
+import TodoForm from './components/TodoForm';
 
 
 
-function Todo({ todo, index, completeTodo, removeTodo }) {
-  return (
-    <div
-      className="todo"
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
-    >
-      {todo.text}
-      <div>
-        <button className="btn-check" onClick={() => completeTodo(index)}> <FontAwesomeIcon icon={faCheck} /> </button>
-        <button className="btn-trash" onClick={() => removeTodo(index)}>  <FontAwesomeIcon icon={faTrash} />  </button>
-      </div>
-    </div>
-  );
-}
 
-function TodoForm({ addTodo }) {
-  const [value, setValue] = useState("");
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-      placeholder="Add task..."
-        type="text"
-        className="input"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-      <button type="submit">
-
-        <FontAwesomeIcon icon={faEdit} />
-      </button>
-    </form>
-  );
-}
 
 function App() {
   const [todos, setTodos] = useState([
@@ -64,18 +28,18 @@ function App() {
     }
   ]);
 
-  const addTodo = text => {
+  const handleaddTodo = text => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
   };
 
-  const completeTodo = index => {
+  const handlecompleteTodo = index => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
   };
 
-  const removeTodo = index => {
+  const handleremoveTodo = index => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
@@ -84,14 +48,14 @@ function App() {
   return (
     <div className="App">
       <div className="todo-list">
-        <TodoForm addTodo={addTodo} />
+        <TodoForm addTodo={handleaddTodo} />
         {todos.map((todo, index) => (
           <Todo
             key={index}
             index={index}
             todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
+            completeTodo={handlecompleteTodo}
+            removeTodo={handleremoveTodo}
           />
           
         ))}
