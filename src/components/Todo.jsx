@@ -9,8 +9,8 @@ function Todo(props) {
       >
         {props.todo.text}
         <div>
-          <button className="btn-check" onClick={() => props.handlecompleteTodo(props.index)}> <FontAwesomeIcon icon={faCheck} /> </button>
-          <button className="btn-trash" onClick={() => props.handleremoveTodo(props.index)}>  <FontAwesomeIcon icon={faTrash} />  </button>
+          <button className="btn-check" onClick={() => props.completeTodo(props.index)}> <FontAwesomeIcon icon={faCheck} /> </button>
+          <button className="btn-trash" onClick={() => props.removeTodo(props.index)}>  <FontAwesomeIcon icon={faTrash} />  </button>
         </div>
       </div>
     );
