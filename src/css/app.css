@@ -8,6 +8,8 @@ button {
   height: 2.4rem;
   margin-left: 1rem;
   border-radius: .2rem;
+  border: none;
+  padding: .7rem;
 }
 
 .btn-trash {
@@ -17,6 +19,7 @@ button {
 .btn-check {
   background-color: green;
 }
+
 
 .todo {
   -webkit-box-align: center;

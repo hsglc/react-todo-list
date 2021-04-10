@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faEdit} from '@fortawesome/free-solid-svg-icons';
+import "../css/TodoForm.css";
 function TodoForm(props) {
     const [value, setValue] = useState("");
   
@@ -20,7 +21,7 @@ function TodoForm(props) {
           value={value}
           onChange={e => setValue(e.target.value)}
         />
-        <button type="submit">
+        <button type="submit" className="btn-edit">
   
           <FontAwesomeIcon icon={faEdit} />
         </button>
